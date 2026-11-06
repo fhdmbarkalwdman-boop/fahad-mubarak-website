@@ -1,0 +1,30 @@
+SYNC FIXES — V3
+
+Backend changes already applied to Supabase project:
+- Added community_posts and community_replies with RLS policies.
+- Added authenticated self-owned avatar upload/update policies under site-media/avatars/<user-id>/.
+- Added both community tables and all existing application tables to supabase_realtime publication.
+- Added indexes for community post/reply foreign keys.
+
+Browser changes:
+- Realtime subscriptions for content, settings, comments, consultations, notifications, favorites, contacts, profiles, activity and community.
+- Pull scheduling prevents overlapping fetches and refreshes on focus/online/visibility restoration.
+- Local-only staff content is no longer incorrectly marked as already uploaded.
+- Content status and original author id are preserved during sync.
+- Community posts/replies are written to the database rather than localStorage.
+- Profile bio/avatar are saved to profiles and Storage.
+- Member notifications are distributed as user-scoped rows.
+
+Validation performed:
+- JavaScript syntax checks passed for the external scripts and all inline scripts.
+- Supabase publication membership verified for all 11 synchronized tables.
+- RLS policies verified on both community tables.
+- ZIP integrity checked after packaging.
+
+Not claimed:
+- No real two-device browser session was available for an end-to-end test.
+- Supabase Security Advisor still reports the existing leaked-password-protection setting as disabled; enable it in Authentication password security settings when convenient.
+
+V4 (2026-11-06):
+- Added Google Search Console verification meta tag inside <head> of index.html (only change to index.html).
+- No changes to supabase-auth.js, supabase-data.js, _redirects, robots.txt, or any Supabase settings/keys.
