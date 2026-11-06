@@ -1,12 +1,11 @@
-# Netlify — موقع فهد مبارك (موقع ثابت: لا أمر بناء، والنشر من مجلد public)
-[build]
-  publish = "public"
 
-# ترويسات أمان آمنة لا تؤثر على عمل الموقع (بدون CSP عمدًا حتى لا تنكسر مكتبة Supabase من jsDelivr)
+# Netlify — موقع فهد مبارك
+[build]
+  publish = "."
+
+# ترويسات الأمان
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-# إعادة التوجيه (SPA) معرّفة في public/_redirects
